@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\UserController;
+use \App\Http\Controllers\RoleController;
+use \App\Http\Controllers\PermissionController;
+use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +27,16 @@ Route::prefix('admin')-> group(function (){
     Route::get('user', [UserController::class,'index'] );
     Route::get('user/add', [UserController::class,'add'] );
     Route::post('user/add', [UserController::class,'store'] );
+
+    #Role
+    Route::get('role',[RoleController::class,'index']);
+
+    #Permission
+    Route::get('permission',[PermissionController::class,'index']);
+
+    #Product
+    Route::get('product',[ProductController::class, 'index']);
+
+    #Ctegory
+    Route::get('category',[CategoryController::class, 'index']);
 });

@@ -1,6 +1,5 @@
-@extends ('main')
-@section ('content')
-
+@extends('main')
+@section('content')
 
 <!--MAIN-->
 <div class="main">
@@ -11,48 +10,37 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
-                  </svg><a href="/admin/user/add">Add New</a></button>
+                  </svg>Add New</button>
             </div>
         </nav>
 
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Avatar</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Product </th>
+                    <th scope="col">Volumn ( Kg )</th>
+                    <th scope="col">Active</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td style="width:50px" id="user">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                          </svg></td>
-                    <td>Mark</td>
-                    <td>hoangviet166@gmail.com</td>
+                    <td>Milk</td>
+                    <td>500</td>
                     <td style="width:20vh">
                         <button type="button" class="btn btn-primary btn-sm">Edit</button>
                         <button type="button" class="btn btn-secondary btn-sm">Delete</button>
                     </td>
                 </tr>
                 <tr>
-                    <td id="user"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                      </svg></td>
-                    <td>Jacob</td>
-                    <td>hoangviet166@gmail.com</td>
+                    <td>Candy</td>
+                    <td>12344</td>
                     <td><button type="button" class="btn btn-primary btn-sm">Edit</button>
                         <button type="button" class="btn btn-secondary btn-sm">Delete</button>
                     </td>
                 </tr>
                 <tr>
-                    <td id="user"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
-                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
-                      </svg></td>
-                    <td>Larry the Bird</td>
-                    <td>hoangviet166@gmail.com</td>
+                    <td>Cake</td>
+                    <td>253254555</td>
                     <td>
                         <button type="button" class="btn btn-primary btn-sm">Edit</button>
                         <button type="button" class="btn btn-secondary btn-sm">Delete</button>
@@ -80,5 +68,7 @@
         </div>
     </div>
 </div>
+
+<!--/Main-->
 
 @endsection

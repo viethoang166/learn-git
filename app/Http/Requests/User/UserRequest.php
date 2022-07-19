@@ -14,16 +14,16 @@ class UserRequest extends FormRequest {
     public function rules()
     {
         return [
-            'name'=> 'required', 'max:50',
+            'name'=> 'required', 'min:2','regex:/^[a-zA-Z]+$/u',
             'email'=> 'required','email',
-            'password' => 'required','strings','min:8',
+            'password' => 'required','strings','min:8','regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/','required_with:password_confirm','same:password_confirm',
             'password_confirm' => 'required',
             'facebook' =>'url',
             'youtube' => 'url',
         ];
     }
 
-    public function messages()
+/*    public function messages()
     {
         return[
             'name.required' => 'Buộc phải nhập'
@@ -36,5 +36,5 @@ class UserRequest extends FormRequest {
             'name' => 'Tên người dùng'
         ];
     }
-
+*/
 }

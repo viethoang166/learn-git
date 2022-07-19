@@ -30,7 +30,7 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        $this -> userService-> create($request);
+        $this -> userService-> create($request -> all());
 
         return redirect() -> back();
     }
