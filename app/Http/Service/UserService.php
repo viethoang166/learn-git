@@ -5,8 +5,8 @@ use \Illuminate\Support\Facades\Session;
 
 class UserService
 {
-    public function create($request)
+    public function add(array $inputs)
     {
-        Session::push('users', $request->only('name', 'email', 'address'));
+        Session::push('users', $inputs);
     }
 }

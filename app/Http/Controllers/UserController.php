@@ -13,25 +13,28 @@ class UserController extends Controller
 
     public function __construct(UserService $userService)
     {
-        $this->UserService = $userService;
+        $this->userService = $userService;
     }
-
-
     public function index()
     {
+        #dd(Session::all());
         return view('admin.user.index',['users'=> Session::get('users')]);
-
     }
-
     public function add()
     {
+        #dd(Session::get('users'));
         return view('admin.user.add');
     }
 
     public function store(UserRequest $request)
     {
-        $this -> userService-> create($request -> all());
+        #dd($request);
+        $this->userService->add($request->only('name', 'email', 'phone', 'address'));
 
-        return redirect() -> back()->with('message', 'thêm mới thành công');
+        return redirect()->back()->with('message', 'thêm mới thành công');
+
+        #$users = collect(Session::get('users'));
     }
+
+
 }
