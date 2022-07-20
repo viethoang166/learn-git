@@ -5,7 +5,8 @@ namespace App\Http\Requests\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Contracts\Service\Attribute\Required;
 
-class UserRequest extends FormRequest {
+class UserRequest extends FormRequest
+{
     public function authorize()
     {
         return true;
@@ -23,16 +24,16 @@ class UserRequest extends FormRequest {
         ];
     }
 
-/*    public function messages()
+    public function messages()
     {
-        return[
+        return [
             'name.required' => 'Buộc phải nhập'
         ];
     }
-
+/*
     public function attributes()
     {
-        return[
+        return [
             'name' => 'Tên người dùng'
         ];
     }

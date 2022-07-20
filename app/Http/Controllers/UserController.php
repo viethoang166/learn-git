@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Service\UserService;
 use Illuminate\Support\Facades\Session;
@@ -32,7 +31,6 @@ class UserController extends Controller
         $this->userService->add($request->only('name', 'email', 'phone', 'address'));
 
         return redirect()->back()->with('message', 'thêm mới thành công');
-
         #$users = collect(Session::get('users'));
     }
 
