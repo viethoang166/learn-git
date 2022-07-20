@@ -32,6 +32,6 @@ class UserController extends Controller
     {
         $this -> userService-> create($request -> all());
 
-        return redirect() -> back();
+        return redirect() -> back()->with('message', 'thêm mới thành công');
     }
 }
