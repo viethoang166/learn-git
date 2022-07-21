@@ -44,27 +44,42 @@
                     <div class="col-md-6 ">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="password" name="password" value="{{ old('password')}}">
+                        @error('password')
+                            <span style="color:red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                     <div class="col-md-6 ">
                         <label for="exampleInputPassword1">Password Confirm</label>
                         <input type="password" class="form-control" id="password_confirm" name="password_confirm" value="{{ old('password_confirm')}}">
+                        @error('password_confirm')
+                        <span style="color:red">{{ $message }}</span>
+                        @enderror
                     </div>
 
                 </div>
             </div>
             <div class="form-group">
                 <label for="exampleInput">Adress</label>
-                <input type="text" class="form-control" id="address" aria-describedby="emailHelp"name="address" value="{{old('address')}}">
+                <input type="text" class="form-control" id="address" aria-describedby="emailHelp" name="address" value="{{old('address')}}">
+                @error('address')
+                <span style="color:red">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Facebook link</label>
-                <input type="text" class="form-control" id="facebook" aria-describedby="emailHelp" placeholder="https://example.com">
+                <input type="text" class="form-control" id="facebook" aria-describedby="emailHelp" placeholder="https://example.com" name="facebook" value="{{old('facebook')}}">
+                @error('facebook')
+                <span style="color:red">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Youtube</label>
-                <input type="text" class="form-control" id="youtube" aria-describedby="emailHelp" placeholder="https://example.com">
+                <input type="text" class="form-control" id="youtube" aria-describedby="emailHelp" placeholder="https://example.com" name="youtube" value="{{old('youtube')}}">
+                @error('youtube')
+                <span style="color:red">{{ $message }}</span>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
