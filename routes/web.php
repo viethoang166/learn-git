@@ -28,6 +28,9 @@ Route::prefix('admin')-> group(function (){
     Route::get('user/add', [UserController::class,'add'] );
     Route::post('user/add', [UserController::class,'store'] );
 
+    #Email
+    Route::get('user/email',[UserController::class,'email']);
+
     #Role
     Route::get('role',[RoleController::class,'index']);
 
@@ -39,4 +42,6 @@ Route::prefix('admin')-> group(function (){
 
     #Ctegory
     Route::get('category',[CategoryController::class, 'index']);
+
+
 });
