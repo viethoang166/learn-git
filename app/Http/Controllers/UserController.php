@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Service\MailService;
 use App\Http\Service\UserService;
@@ -29,18 +30,18 @@ class UserController extends Controller
         return view('admin.user.add');
     }
 
+    public function store(UserRequest $request)
+    {
+        $this->userService->save($request->only('name', 'email', 'phone', 'address'));
+        return redirect()->back()->with('message', 'Thêm mới thành công');
+    }
+
     public function email()
     {
         return view('admin.user.email', ['users' => Session::get('users')]);
     }
 
-    public function store(UserRequest $request)
-    {
-        $this->userService->save($request->only('name', 'email', 'phone', 'address'));
-        return redirect()->back()->with('message', 'thêm mới thành công');
-    }
-
-    public function sendMailUserProfile(UserRequest $request)
+    public function sendMailUserProfile(Request $request)
     {
         if ($request -> mail == 'all_user') {
             $user = collect(Session::get('users'));
