@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Service\MailService;
 use App\Http\Service\UserService;
@@ -22,7 +21,7 @@ class UserController extends Controller
     public function index()
     {
         #dd(Session::get('users'));
-        return view('admin.user.index',['users'=> Session::get('users')]);
+        return view('admin.user.index', ['users'=> Session::get('users')]);
     }
 
     public function add()
@@ -39,7 +38,5 @@ class UserController extends Controller
     {
         $this->userService->add($request->only('name', 'email', 'phone', 'address'));
         return redirect()->back()->with('message', 'thêm mới thành công');
-        #$users = collect(Session::get('users'));
     }
-
 }

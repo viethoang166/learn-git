@@ -3,7 +3,6 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Symfony\Contracts\Service\Attribute\Required;
 
 class UserRequest extends FormRequest
 {
@@ -16,8 +15,8 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required|min:2',
-            'email' => 'required|email',
-            'password' => 'required|string|min:8|required_with:password_confirm|same:password_confirm',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8|regex:/[@$!%*#?&]/|regex:/[0-9]/|required_with:password_confirm|same:password_confirm',
             'password_confirm' => 'required',
             'facebook' =>'url',
             'youtube' => 'url',

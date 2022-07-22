@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Service;
-use \Illuminate\Support\Facades\Session;
+
+use Illuminate\Support\Facades\Session;
 
 class UserService
 {
