@@ -36,7 +36,20 @@ class UserController extends Controller
 
     public function store(UserRequest $request)
     {
-        $this->userService->add($request->only('name', 'email', 'phone', 'address'));
+        $this->userService->save($request->only('name', 'email', 'phone', 'address'));
         return redirect()->back()->with('message', 'thêm mới thành công');
+    }
+
+    public function sendMailUserProfile(UserRequest $request)
+    {
+        if ($request -> mail == 'all_user') {
+            $user = collect(Session::get('users'));
+        } else {
+            $user = collect(Session::get('users')) -> where('email', '=', $request->email);
+        }
+        foreach ($user as $value) {
+            $this -> mailService -> sendUserProfile($value);
+        }
+        return redirect()->back()->with('message', 'Gủi thành công!');
     }
 }

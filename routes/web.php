@@ -26,16 +26,17 @@ Route::prefix('admin')-> group(function () {
     #User
     Route::get('user', [UserController::class,'index']);
     Route::get('user/add', [UserController::class,'add']);
-    Route::post('user/add', [UserController::class,'store']);
+    Route::post('user/add', [UserController::class, 'store']);
 
     #Email
-    Route::get('user/email', [UserController::class,'email']);
+    Route::get('user/email', [UserController::class, 'email']);
+    Route::post('user/email', [UserController::class,'email']);
 
     #Role
-    Route::get('role', [RoleController::class,'index']);
+    Route::get('role', [RoleController::class, 'index']);
 
     #Permission
-    Route::get('permission', [PermissionController::class,'index']);
+    Route::get('permission', [PermissionController::class, 'index']);
 
     #Product
     Route::get('product', [ProductController::class, 'index']);

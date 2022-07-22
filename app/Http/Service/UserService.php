@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Session;
 
 class UserService
 {
-    public function add(array $inputs)
+    public function save(array $inputs)
     {
         Session::push('users', $inputs);
     }
