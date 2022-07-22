@@ -24,9 +24,6 @@
             <p>Email : </p>
             <p>{{ $user['email']}}</p>
             <hr>
-            <p>Phone : </p>
-            <p>{{ $user['phone']}}</p>
-            <hr>
             <p>Address : </p>
             <p>{{ $user['address']}}</p>
 

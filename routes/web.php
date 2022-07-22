@@ -30,7 +30,7 @@ Route::prefix('admin')-> group(function () {
 
     #Email
     Route::get('user/email', [UserController::class, 'email']);
-    Route::post('user/email', [UserController::class,'email']);
+    Route::post('user/email', [UserController::class,'sendMailUserProfile'])->name('send');
 
     #Role
     Route::get('role', [RoleController::class, 'index']);
