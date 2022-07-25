@@ -14,7 +14,7 @@ class InformUserProfile extends Mailable
     /**
      * The order instance.
      *
-     * @var \App\Models\Order
+     *
      */
     public $user;
 
