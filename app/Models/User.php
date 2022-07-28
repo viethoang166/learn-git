@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Model\Tag;
 
 class User extends Authenticatable
 {
@@ -22,10 +21,7 @@ class User extends Authenticatable
 
     protected $guarded = [];
     // khong thể gán hàng loạt cho cột trong [...]
-    protected $fillable = [
-        'name',
-        'id',
-    ];
+    //protected $fillable = [];
     // các cột được chỉ định có thể gán giá trị
 
 
