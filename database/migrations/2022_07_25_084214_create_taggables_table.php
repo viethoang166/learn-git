@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::create('taggables', function (Blueprint $table) {
-            $table->bigInteger('id')->primary();
+            $table->bigInteger('id');
             $table->bigInteger('tag_id');
             $table->bigInteger('taggable_id');
             $table->string('taggable_type');

@@ -13,18 +13,32 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
+    protected $guarded = [];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
 
-    protected $guarded = [];
-    // khong thể gán hàng loạt cho cột trong [...]
-    //protected $fillable = [];
-    // các cột được chỉ định có thể gán giá trị
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    /*protected $hidden = [
+        'password',
+        'remember_token',
+    ];*/
 
-
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    /*protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];*/
     public function roles()
     {
         return $this->belongsToMany(Role::class);
@@ -49,22 +63,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(Attachment::class);
     }
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    /*protected $hidden = [
-        'password',
-        'remember_token',
-    ];*/
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    /*protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];*/
 }

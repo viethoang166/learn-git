@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::create('permission_groups', function (Blueprint $table) {
-            $table->integer('id')->primary();
+            $table->integer('id')->autoIncrement();
             $table->string('name', 255);
             $table->timestamps();
         });

@@ -17,7 +17,7 @@ class SchoolFactory extends Factory
     public function definition()
     {
         return [
-            'id' => fake()->randomNumber(6,false),
+            'id' => fake()->randomNumber(6, false),
             'name' => fake()->unique()->name(),
             'email' => fake()->unique()->safeEmail(),
             'code' => fake()->unique()->word(),
