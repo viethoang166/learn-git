@@ -19,7 +19,7 @@ return new class () extends Migration {
             $table->string('username', 50)->nullable();
             $table->string('password', 200)->nullable();
             $table->string('phone', 100)->nullable();
-            $table->string('address')->nullable();
+            $table->string('address')->address()->nullable();
             $table->bigInteger('school_id')->nullable();
             $table->tinyInteger('type')->nullable();
             $table->integer('parent_id')->nullable();

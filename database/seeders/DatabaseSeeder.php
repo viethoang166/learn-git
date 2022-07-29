@@ -27,6 +27,10 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             UsersRoleSeeder::class,
             TagSeeder::class,
+            TaggableSeeder::class,
+            RolesPermissionSeeder::class,
+            AttachmentSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }
