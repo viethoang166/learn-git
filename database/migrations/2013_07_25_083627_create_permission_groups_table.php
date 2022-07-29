@@ -14,7 +14,7 @@ return new class () extends Migration {
     {
         Schema::create('permission_groups', function (Blueprint $table) {
             $table->integer('id')->autoIncrement();
-            $table->string('name', 255);
+            $table->string('name', 255)->nullable();
             $table->timestamps();
         });
     }
