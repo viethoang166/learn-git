@@ -18,6 +18,6 @@ class Attachment extends Model
 
     public function messages()
     {
-        return $this->belongsTo(Attachment::class);
+        return $this->belongsTo(Message::class);
     }
 }
