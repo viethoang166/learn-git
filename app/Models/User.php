@@ -13,6 +13,11 @@ class User extends Authenticatable
     use HasFactory;
     use Notifiable;
 
+    public const TYPES = [
+        'admin' => 1,
+        'student' => 2,
+    ];
+
     protected $fillable = [
         'name',
         'email',
@@ -43,4 +48,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Attachment::class);
     }
+
+
 }
