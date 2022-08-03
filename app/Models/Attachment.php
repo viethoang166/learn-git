@@ -16,8 +16,8 @@ class Attachment extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function messages()
+    public function message()
     {
-        return $this->belongsTo(Attachment::class);
+        return $this->belongsTo(Message::class);
     }
 }
