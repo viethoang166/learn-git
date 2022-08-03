@@ -69,16 +69,15 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => $data['password'],
+            'password' => Hash::make($data['password']),
         ]);
     }
 
     public function register(Request $request)
     {
-        $this ->validator($request->all())->validate();
+        $this->validator($request->all())->validate();
 
-        $user = $this->create($request->all());
-        event(new Registered($user));
+        event(new Registered($this->create($request->all())));
 
         return redirect('/login') -> with('status', 'Please verify according to the instructions');
     }

@@ -22,7 +22,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         if (Auth::user()) {
-            return '/admin/index';
+            return '/admin';
         }
         return '/home';
     }
@@ -33,8 +33,9 @@ class LoginController extends Controller
             'email' => $request,
             'password' => $request,
         ];
+        //dd(Auth::attempt($login));
         if (Auth::attempt($login)) {
-            return redirect('admin/index');
+            return redirect($this->redirectPath());
         } else {
             return redirect()->back()->with('status', 'Email hoặc Password không chính xác');
         }
