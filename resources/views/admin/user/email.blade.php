@@ -12,6 +12,13 @@
             </div>
         </nav>
 
+        @if (session()->has('message'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('message') }}
+            </div>
+        @endif
+
+        @if(!empty($users))
         <form method="post">
             <div class="select">
                 <select class="custom-select col-12" name="email" required>
@@ -27,6 +34,12 @@
             </div>
             @csrf
         </form>
+
+        @else
+        <div class="alert alert-danger text-center">
+            Không có dữ liệu người dùng
+        </div>
+    @endif
     </div>
 </div>
 

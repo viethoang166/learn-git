@@ -32,7 +32,10 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], function () {
 
     #User
-    Route::resource('user', UserController::class);
+    #Route::resource('user', UserController::class);
+    Route::get('user', [UserController::class,'index']);
+    Route::get('user/add', [UserController::class,'add']);
+    Route::post('user/add', [UserController::class, 'store']);
 
     #Email
     Route::get('user/email', [UserController::class, 'email']);
