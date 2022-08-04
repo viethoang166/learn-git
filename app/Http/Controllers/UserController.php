@@ -25,7 +25,7 @@ class UserController extends Controller
         return view('admin.user.index', ['users'=> Session::get('users')]);
     }
 
-    public function add()
+    public function create()
     {
         return view('admin.user.add');
     }

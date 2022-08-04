@@ -80,8 +80,7 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        $user = $this->create($request->all());
-        event(new Registered($user));
+        event(new Registered($this->create($request->all())));
 
         return redirect('/login')->with('status', 'Please check your email and verify according to the instructions.');
     }

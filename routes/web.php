@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], fu
     #User
     #Route::resource('user', UserController::class);
     Route::get('user', [UserController::class,'index']);
-    Route::get('user/add', [UserController::class,'add']);
+    Route::get('user/add', [UserController::class,'create']);
     Route::post('user/add', [UserController::class, 'store']);
 
     #Email
