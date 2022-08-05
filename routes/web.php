@@ -6,6 +6,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +20,19 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
+Auth::routes(['verify'=>true]);
 Route::get('/', function () {
-    return view('admin.index');
+    return redirect('/home');
 });
 
-Route::prefix('admin')-> group(function () {
+#Student
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+#admin
+Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], function () {
+
     #User
+    #Route::resource('user', UserController::class);
     Route::get('user', [UserController::class,'index']);
     Route::get('user/add', [UserController::class,'add']);
     Route::post('user/add', [UserController::class, 'store']);
@@ -33,14 +42,14 @@ Route::prefix('admin')-> group(function () {
     Route::post('user/email', [UserController::class,'sendMailUserProfile'])->name('send');
 
     #Role
-    Route::get('role', [RoleController::class, 'index']);
+    Route::resource('role', RoleController::class);
 
     #Permission
-    Route::get('permission', [PermissionController::class, 'index']);
+    Route::resource('permission', PermissionController::class);
 
     #Product
-    Route::get('product', [ProductController::class, 'index']);
+    Route::resource('product', ProductController::class);
 
     #Ctegory
-    Route::get('category', [CategoryController::class, 'index']);
+    Route::resource('category', CategoryController::class);
 });

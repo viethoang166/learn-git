@@ -11,6 +11,7 @@
         <a href="{{ url('admin/permission/') }}">
             <p id="list-sidebar">Permission management</p>
         </a>
+
         <p id="head-sidebar">Catalog</p>
         <a href="{{ url('admin/product/') }}">
             <p id="list-sidebar">Product management</p>
@@ -19,5 +20,9 @@
             <p id="list-sidebar">Category management</p>
         </a>
     </div>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        <button>Logout</button>
+        @csrf
+    </form>
 </div>
 <!--/sidebar-->
