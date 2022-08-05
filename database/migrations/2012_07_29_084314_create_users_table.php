@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger('id')->autoIncrement();
+            $table->id();
             $table->string('name', 50);
             $table->string('email', 32);
             $table->string('username', 50)->nullable();
