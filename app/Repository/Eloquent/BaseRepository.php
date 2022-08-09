@@ -16,6 +16,16 @@ class BaseRepository implements BaseRepositoryInterface
 
     public function save(array $inputs, array $conditions = ['id' => null])
     {
-        return $this->model->upadteOrCreate($conditions, $inputs);
+        return $this->model->updateOrCreate($conditions, $inputs);
+    }
+
+    public function findById($id)
+    {
+        return $this->model->find($id);
+    }
+
+    public function deleteById($id)
+    {
+        return $this->model->destroy($id);
     }
 }

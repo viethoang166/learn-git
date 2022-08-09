@@ -7,7 +7,7 @@
                 <a class="navbar-brand">Permission Group List</a>
                 <div class="form-inline">
                     <button class="btn " type="submit">
-                        <a href="/admin/user/add">Add New</a></button>
+                        <a href="/admin/permission_group/create">Add New</a></button>
                     </div>
                 </nav>
 
@@ -27,9 +27,17 @@
                                 <td>{{$permissionGroup['id']}}</td>
                                 <td>{{$permissionGroup['name']}}</td>
                                 <td style="width:20vh">
-                                    <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                                    <button type="button" class="btn btn-secondary btn-sm">Delete</button>
-                                    <button type="button" class="btn btn-info btn-sm">Info</button>
+                                    <button class="btn btn-primary btn-sm">
+                                        <a href="{{route('permission_group.edit', $permissionGroup->id)}}">Edit</a>
+                                    </button>
+                                    <button class="btn btn-info btn-sm">
+                                        <a href="{{route('permission_group.show', $permissionGroup->id)}}">Info</a>
+                                    </button>
+                                    <form class="d-inline" method="POST" action="{{route('permission_group.destroy', $permissionGroup->id)}}">
+                                        @csrf
+                                        @method("delete")
+                                        <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
