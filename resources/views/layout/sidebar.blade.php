@@ -11,6 +11,9 @@
         <a href="{{ url('admin/permission/') }}">
             <p id="list-sidebar">Permission management</p>
         </a>
+        <a href="{{ url('admin/permission_group/') }}">
+            <p id="list-sidebar">Permission Group management</p>
+        </a>
 
         <p id="head-sidebar">Catalog</p>
         <a href="{{ url('admin/product/') }}">

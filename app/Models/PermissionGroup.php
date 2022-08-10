@@ -9,7 +9,7 @@ class PermissionGroup extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['name','created_at','updated_at'];
 
     public function permissions()
     {
