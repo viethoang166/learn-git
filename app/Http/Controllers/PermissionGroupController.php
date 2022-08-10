@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-
-use App\Repositories\Admin\PermissionGroup\PermissionGroupRepository;
 use App\Repository\PermissionGroupRepositoryInterface;
 use  App\Http\Requests\Admin\PermissionGroupRequest;
-
 
 class PermissionGroupController extends Controller
 {
@@ -19,7 +14,8 @@ class PermissionGroupController extends Controller
         $this->permissionGroupRepository = $permissionGroupRepository;
     }
 
-    public function index(){
+    public function index()
+    {
         return view('admin.permission_group.index', [
             'permissionGroups' => $this->permissionGroupRepository->paginate()
         ]);
@@ -33,23 +29,24 @@ class PermissionGroupController extends Controller
     public function store(PermissionGroupRequest $request)
     {
         $this->permissionGroupRepository->save($request->all());
-        return redirect()->route('permission_group.index');
+        return redirect()->route('permission_group.index')->with('success', 'Tạo mới thành công!');
     }
 
     public function show($id)
     {
-        if (!$permissionGroup = $this->permissionGroupRepository->findById($id))
-        {
-        abort(404);
+        if (!$permissionGroup = $this->permissionGroupRepository->findById($id)) {
+            abort(404);
         }
+
         return view('admin.permission_group.show', ['permissionGroup' => $permissionGroup]);
     }
 
     public function edit($id)
     {
-        if (!$permissionGroup = $this->permissionGroupRepository->findById($id)){
+        if (!$permissionGroup = $this->permissionGroupRepository->findById($id))
+            {
             abort(404);
-        }
+            }
         return view('admin.permission_group.form', ['permissionGroup' => $permissionGroup]);
     }
 
@@ -57,11 +54,12 @@ class PermissionGroupController extends Controller
     {
         $this->permissionGroupRepository->save($request->all(), ['id' => $id]);
         return redirect()->route('permission_group.index');
+        return redirect()->back()->with('success', 'Sửa thành công!');
     }
 
     public function destroy($id)
     {
         $this->permissionGroupRepository->deleteById($id);
-        return redirect()->route('permission_group.index');
+        return redirect()->route('permission_group.index')->with('success', 'Xoá thành công!');
     }
 }

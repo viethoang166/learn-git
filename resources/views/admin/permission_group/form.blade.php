@@ -21,6 +21,11 @@
                 </button>
 
             </div>
+            @if (session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+            @endif
             <form method="post" action="{{route('permission_group.update',$permissionGroup->id)}}">
                 @method('PUT')
                 @endif
@@ -29,9 +34,9 @@
                     Vui lòng kiểm tra lại dữ liệu
                 </div>
                 @endif
-                @if (session()->has('message'))
+                @if (session()->has('success'))
                 <div class="alert alert-success text-center">
-                    {{ session()->get('message') }}
+                    {{ session()->get('success') }}
                 </div>
                 @endif
                 <div class="form-group">

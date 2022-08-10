@@ -27,7 +27,7 @@
                                 <td>{{$permissionGroup['id']}}</td>
                                 <td>{{$permissionGroup['name']}}</td>
                                 <td style="width:20vh">
-                                    <button class="btn btn-primary btn-sm">
+                                    <button class="btn btn-sm">
                                         <a href="{{route('permission_group.edit', $permissionGroup->id)}}">Edit</a>
                                     </button>
                                     <button class="btn btn-info btn-sm">
@@ -36,11 +36,16 @@
                                     <form class="d-inline" method="POST" action="{{route('permission_group.destroy', $permissionGroup->id)}}">
                                         @csrf
                                         @method("delete")
-                                        <button type="submit" class="btn btn-secondary btn-sm">Delete</button>
+                                        <button type="submit" onclick="return confirm('Are you sure?')" class="btn btn-secondary btn-sm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
                         @endforeach
+                        @endif
+                        @if (session()->has('success'))
+                        <div class="alert alert-success text-center">
+                            {{ session()->get('success') }}
+                        </div>
                         @endif
                     </tbody>
                 </table>

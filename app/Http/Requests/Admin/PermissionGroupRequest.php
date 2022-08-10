@@ -7,7 +7,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class PermissionGroupRequest extends FormRequest
 {
-
     public function authorize()
     {
         return true;
