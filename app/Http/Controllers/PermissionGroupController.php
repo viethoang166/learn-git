@@ -43,18 +43,16 @@ class PermissionGroupController extends Controller
 
     public function edit($id)
     {
-        if (!$permissionGroup = $this->permissionGroupRepository->findById($id))
-            {
+        if (!$permissionGroup = $this->permissionGroupRepository->findById($id)) {
             abort(404);
-            }
+        }
         return view('admin.permission_group.form', ['permissionGroup' => $permissionGroup]);
     }
 
     public function update(PermissionGroupRequest $request, $id)
     {
         $this->permissionGroupRepository->save($request->all(), ['id' => $id]);
-        return redirect()->route('permission_group.index');
-        return redirect()->back()->with('success', 'Sửa thành công!');
+        return redirect()->route('permission_group.index')->with('success', 'Sửa thành công!');
     }
 
     public function destroy($id)
