@@ -24,11 +24,10 @@
         </a>
     </div>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
-        <button>{{__('messages.logout')}}</button>
+        <button>{{__('button.logout')}}</button>
         @csrf
     </form>
     <a href="{{ route('lang',['lang' => 'vi']) }}">VI</a>
-
     <a href="{{ route('lang',['lang' => 'en' ]) }}">EN</a>
 
 </div>

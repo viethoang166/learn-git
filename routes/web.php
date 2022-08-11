@@ -59,5 +59,5 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], fu
     Route::resource('category', CategoryController::class);
 
     #Language
-    Route::get('lang/{lang}',[LangController::class, 'changeLang'])->name('lang');
+    Route::get('lang/{lang}', [LangController::class, 'changeLang'])->name('lang');
 });

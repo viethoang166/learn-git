@@ -6,21 +6,21 @@
 <div class="main">
     <div class="container">
         <nav class="navbar justify-content-between">
-            <a class="navbar-brand">User List</a>
+            <a class="navbar-brand">{{__('user.title')}}</a>
             <div class="form-inline">
                 <button class="btn " type="submit">
-                  <a href="/admin/user/email">Send Mail</a></button>
-                  <a href="/admin/user/add">Add New</a></button>
+                  <a href="/admin/user/email">{{__('user.email')}}</a></button>
+                  <a href="/admin/user/add">{{__('user.addnew')}}</a></button>
             </div>
         </nav>
 
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Avatar</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">{{__('user.avatar')}}</th>
+                    <th scope="col">{{__('user.name')}}</th>
+                    <th scope="col">{{__('user.email')}}</th>
+                    <th scope="col">{{__('user.action')}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -36,8 +36,8 @@
                             <td>{{ $user['name'] }}</td>
                             <td>{{ $user['email'] }}</td>
                             <td style="width:20vh">
-                                <button type="button" class="btn btn-primary btn-sm">Edit</button>
-                                <button type="button" class="btn btn-secondary btn-sm">Delete</button>
+                                <button type="button" class="btn btn-primary btn-sm">{{__('button.edit')}}</button>
+                                <button type="button" class="btn btn-secondary btn-sm">{{__('button.delete')}}</button>
                             </td>
                         </tr>
                     @endforeach
