@@ -7,6 +7,7 @@ use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\PermissionGroupController;
 use Illuminate\Support\Facades\Auth;
 
@@ -56,4 +57,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], fu
 
     #Ctegory
     Route::resource('category', CategoryController::class);
+
+    #Language
+    Route::get('lang/{lang}', [LangController::class, 'changeLang'])->name('lang');
 });

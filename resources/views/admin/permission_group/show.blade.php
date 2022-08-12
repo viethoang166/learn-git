@@ -4,20 +4,20 @@
 <div class="main">
     <div class="container">
         <nav class="navbar justify-content-between">
-            <a class="navbar-brand">Information</a>
+            <a class="navbar-brand">{{__('permission_group.information')}}</a>
             <div class="form-inline">
                 <button class="btn " type="submit">
-                <a href="/admin/user/add">Add New</a></button>
+                <a href="/admin/user/add">{{__('button.addnew')}}</a></button>
             </div>
         </nav>
 
         <table class="table table-bordered mt-3">
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Create at</th>
-                    <th scope="col">Update at</th>
+                    <th scope="col">{{__('permission_group.id')}}</th>
+                    <th scope="col">{{__('permission_group.name')}}</th>
+                    <th scope="col">{{__('permission_group.create_at')}}</th>
+                    <th scope="col">{{__('permission_group.update_at')}}</th>
                 </tr>
             </thead>
             <tbody>
