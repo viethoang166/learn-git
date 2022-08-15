@@ -53,5 +53,4 @@
                 {{ $permissionGroups->links() }}
             </div>
         </div>
-
 @endsection
