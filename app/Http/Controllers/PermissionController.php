@@ -32,7 +32,7 @@ class PermissionController extends Controller
     public function store(PermissionRequest $request)
     {
         $this->permissionRepository->save($request->validated());
-        return redirect()->route('permission.index');
+        return redirect()->route('permission.index')->with('success', 'Tạo mới thành công!');
     }
 
     public function show($id)
@@ -56,6 +56,7 @@ class PermissionController extends Controller
     {
         $this->permissionRepository->save($request->validated(), ['id' => $id]);
         return redirect()->route('permission.index');
+        return redirect()->back()->with('success', 'Sửa thành công!');
     }
 
     public function destroy($id)
