@@ -20,6 +20,11 @@
                 <button class="btn btn-primary" style="width: 100px"><a href="/admin/permission_group" style="color: white">{{__('button.back')}}</a>
                 </button>
             </div>
+            @if (session()->has('success'))
+            <div class="alert alert-success text-center">
+                {{ session()->get('success') }}
+            </div>
+            @endif
 
             <form method="post" action="{{route('permission.update',$permission->id)}}">
                 @method('PUT')
@@ -27,11 +32,6 @@
                 @if ($errors->any())
                 <div class="alert alert-danger text-center ">
                     Vui lòng kiểm tra lại dữ liệu
-                </div>
-                @endif
-                @if (session()->has('success'))
-                <div class="alert alert-success text-center">
-                    {{ session()->get('success') }}
                 </div>
                 @endif
 
