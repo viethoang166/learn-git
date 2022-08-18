@@ -9,13 +9,19 @@ class Role extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id',
+        'name',
+        'permission_id',
+    ];
+
+    public function permissions()
+        {
+            return $this->belongsToMany(Permission::class, 'roles_permissions')->withTimestamps();
+        }
+
     public function users()
     {
         return $this->belongsToMany(User::class);
-    }
-
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class);
     }
 }
