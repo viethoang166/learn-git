@@ -18,13 +18,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::factory()
-            ->count(10)
-            ->state(new Sequence(
-                fn () => [
-                    'school_id' => School::all()->random(),
-                ],
-            ))
-            ->create();
+            ->count(10)->create();
 
         DB::table('users')->insert([
                 'username' => 'admin',

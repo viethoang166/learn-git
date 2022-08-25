@@ -22,6 +22,9 @@
         <a href="{{ url('admin/category/') }}">
             <p id="list-sidebar">{{ __('messages.sidebar6') }}</p>
         </a>
+        <a href="{{ url('admin/customer/') }}">
+            <p id="list-sidebar">Customer Manager</p>
+        </a>
     </div>
     <form id="logout-form" action="{{ route('logout') }}" method="POST">
         <button>{{__('button.logout')}}</button>

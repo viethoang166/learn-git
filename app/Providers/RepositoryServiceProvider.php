@@ -20,6 +20,15 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(PermissionGroupRepositoryInterface::class, PermissionGroupRepository::class);
         $this->app->bind(PermissionRepositoryInterface::class, PermissionRepository::class);
         $this->app->bind(RoleRepositoryInterface::class, RoleRepository::class);
+
+        $this->app->singleton(
+            \App\Repository\Admin\Customer\CustomerRepositoryInterface::class,
+            \App\Repository\Admin\Customer\CustomerRepository::class
+        );
+        $this->app->singleton(
+            \App\Repository\Admin\Phonezalo\PhonezaloRepositoryInterface::class,
+            \App\Repository\Admin\Phonezalo\PhonezaloRepository::class
+        );
     }
 
     public function boot()
