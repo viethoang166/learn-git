@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LangController;
 use App\Http\Controllers\PermissionGroupController;
@@ -60,4 +61,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['admin.verify','auth']], fu
 
     #Language
     Route::get('lang/{lang}', [LangController::class, 'changeLang'])->name('lang');
+
+    #Customer
+    Route::resource('customer', CustomerController::class);
 });
